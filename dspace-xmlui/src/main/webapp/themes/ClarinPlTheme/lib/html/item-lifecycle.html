@@ -5,6 +5,9 @@
      <hr />
      <ul id="faqs-list">
          <li><a href="#submitted-item">Submitted Item</a></li>
+         <li><a href="#validated-item">Validated Item</a></li>
+         <li><a href="#integrity">Integrity and authenticity</a></li>
+         <li><a href="#curated-item">Curated Item</a></li>
          <li><a href="#edited-item">Edited Item</a></li>
          <li><a href="#published-item">Published Item</a></li>
          <li><a href="#modifying-item">Deleting and Modifying of Published Item</a></li>
@@ -14,9 +17,48 @@
 
     <div>
       <h3 id="submitted-item">Submitted Item</h3>
-      <p>After you <a href="deposit">deposit</a> a submission it will be inserted into a 
+      <p>After you <a href="deposit">deposit</a> a submission it will be inserted into a
       pool of submitted items. The item is not publicly available and waits for an editor
-      to approve (or reject) it.    
+      to approve (or reject) it.
+      </p>
+    </div>
+
+    <div>
+      <h3 id="validated-item">Validated Item</h3>
+      <ul>
+        <li>Automatic validation of file formats and integrity</li>
+        <li>Manual validation of non-standard formats</li>
+      </ul>
+      <p>Once a data producer submits an item to the repository it is first being automatically validated.
+        Specifically, when the dataset is created, the data files are stored on our cluster.
+        Their MD5 checksums are calculated and corrupted files are immediately repaired using redundant data</p>
+    </div>
+
+    <div>
+      <h3 id="integrity">Integrity and authenticity of the archived data</h3>
+      <p>
+        We verify the integrity and authenticity of the archived data at all stages of the deposited item lifecycle.
+        This is done both automatically and manually. The depositor’s identity is verified either by a local account
+        or a shibboleth account (providing their name and email address and attributes). The item is then linked to
+        the Data Producer’s account, and only the Data Producer may edit,  manage and publish changes to their item.
+        Yet it is only possible at the 'before the deposition' stage. After the review and acceptance by the data curator,
+        the item is published, its version is fixed and the content of the item is immutable. No data versioning is supported.
+        Once a Data Producer wants to introduce a new version of their item, they have to create a new deposit.
+        </p>
+      <p>
+        The repository maintains provenance data and related audit trails.
+        Logged-in users have access to information about changes made to the submitted item,
+        described in the metadata field dc.description.provenance. This  information is available
+        in full metadata description mode, e.g. <a href="https://clarin-pl.eu/dspace/handle/11321/741?show=full">see here</a>
+       </p>
+    </div>
+
+    <div>
+      <h3 id="curated-item">Curated Item</h3>
+      <p>Next, the item is curated by a data steward. The task of the data curator is to verify whether the submission
+        meets our requirements with respect to metadata quality and completeness, bitstream consistency and IPR.
+        The curator can return the submission to the data depositor describing the needed changes. This step is repeated until the curator
+        approves the item. The approved item becomes a published item.
       </p>
     </div>
 
@@ -45,7 +87,6 @@
           (see <a href="#restricted-submissions">Restricted Submissions</a>) are also available through OAI-ORE protocol.
       </p>
     </div>
-
     
     <div>
       <h3 id="modifying-item">Deleting and Modifying of Published Item</h3>
