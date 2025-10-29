@@ -6,11 +6,12 @@
      <ul id="faqs-list">
          <li><a href="#submitted-item">Submitted Item</a></li>
          <li><a href="#validated-item">Validated Item</a></li>
-         <li><a href="#integrity">Integrity and authenticity</a></li>
-         <li><a href="#curated-item">Curated Item</a></li>
+         <li><a href="#curated-item">Curated Item</a></li>    
          <li><a href="#edited-item">Edited Item</a></li>
          <li><a href="#published-item">Published Item</a></li>
-         <li><a href="#modifying-item">Deleting and Modifying of Published Item</a></li>
+         <li><a href="#deleting-item">Deleting of Published Item</a></li>
+         <li><a href="#modifying-item">Modifying of Published Item</a></li>
+         <li><a href="#integrity">Integrity and authenticity</a></li>
          <li><a href="#restricted-submissions">Restricted submissions</a></li>
      </ul>
      <hr />
@@ -34,26 +35,7 @@
         Their MD5 checksums are calculated and corrupted files are immediately repaired using redundant data</p>
     </div>
 
-    <div>
-      <h3 id="integrity">Integrity and authenticity of the archived data</h3>
-      <p>
-        We verify the integrity and authenticity of the archived data at all stages of the deposited item lifecycle.
-        This is done both automatically and manually. The depositor’s identity is verified either by a local account
-        or a shibboleth account (providing their name and email address and attributes). The item is then linked to
-        the Data Producer’s account, and only the Data Producer may edit,  manage and publish changes to their item.
-        Yet it is only possible at the 'before the deposition' stage. After the review and acceptance by the data curator,
-        the item is published, its version is fixed and the content of the item is immutable. No data versioning is supported.
-        Once a Data Producer wants to introduce a new version of their item, they have to create a new deposit.
-        </p>
-      <p>
-        The repository maintains provenance data and related audit trails.
-        Logged-in users have access to information about changes made to the submitted item,
-        described in the metadata field dc.description.provenance. This  information is available
-        in full metadata description mode, e.g. <a href="https://clarin-pl.eu/dspace/handle/11321/741?show=full">see here</a>
-       </p>
-    </div>
-
-    <div>
+     <div>
       <h3 id="curated-item">Curated Item</h3>
       <p>Next, the item is curated by a data steward. The task of the data curator is to verify whether the submission
         meets our requirements with respect to metadata quality and completeness, bitstream consistency and IPR.
@@ -71,7 +53,7 @@
       </p>
     </div>
 
-    <div>
+     <div>
       <h3 id="published-item">Published Item</h3>
       <p>A published item obtains a PID (persistent identifier) which should be used for referencing and citing e.g., 
       <strong>http://hdl.handle.net/11858/00-097C-0000-0022-F59C-8</strong>. The CLARIN-PL repository will ensure that
@@ -87,23 +69,71 @@
           (see <a href="#restricted-submissions">Restricted Submissions</a>) are also available through OAI-ORE protocol.
       </p>
     </div>
-    
+
     <div>
-      <h3 id="modifying-item">Deleting and Modifying of Published Item</h3>
-      <p>Anybody can request deletion of published items; however, these will be evaluated on case-by-case basis.
-      Furthermore, we reserve the right to keep the metadata of published submissions available
-      in case there is no specific reason why to delete the metadata. The reason is that it is against
+      <h3 id="deleteing-item">Deleting Published Item</h3>
+      <p>Anybody can request deletion of published data (bitstreams) through our <a class="helpdesk-tolink" href="mailto:dspace@clarin-pl.eu">Help Desk</a>. 
+      However, these will be evaluated on case-by-case basis. Furthermore, we reserve the right to keep the metadata of published 
+      submissions available in case there is no specific reason why to delete the metadata. The reason is that it is against
       the concept of PIDs (<strong>persistent</strong> identifiers).
       All PIDs are available through OAI-PMH interface even if only to inform that the item
       has been deleted.    
       </p>
-      
-      <p>We allow for minor edits of the submission (e.g., typos) through our <strong>Help Desk</strong>. These are also
-      evaluated on case-by-case basis. For major changes, the user is requested to submit a new version of that item
-      and we will indicate in the metadata that it is replaced by a newer version. 
+    </div>
+
+    <div>
+    <h3 id="modifying-item">Modifying a Published Item</h3>
+      <p>We allow for minor edits of the submission (e.g., typos) through our <a class="helpdesk-tolink" href="mailto:dspace@clarin-pl.eu">Help Desk</a>.
+      We also allow certain additions to the metadata or data, e.g. adding keywords, adding information on a new publication 
+      about the submission or adding new bitstreams which are derived from existing ones, i.e. making the same data 
+      available in additional formats. Suggestions for such edits are also evaluated on case-by-case basis. In cases of more 
+      substantial changes, the user must make a new version of the entry, and the metadata will show that the entry has been 
+      superseeded by a newer version. Note also that the repository editors might make small changes to the metadata in well 
+      defined circumstances (i.e. correcting typos, removing URLs that no longer work, or unifying keywords) even after 
+      the item has been published.
       </p>
     </div>
 
+    <div>
+      <h3 id="newverisom">Submitting a new version of an Item</h3>
+      <p>If a new version of a resource was created, you need to create a new submission. However, you do not 
+        (in fact, should not) create a new submission from scratch, but follow the following procedure:</p>    
+
+      <ol>
+        <li>Log in and go to the list of your existing Submissions. You can only create a new version from your previous submission, not from somebody else's – to do it yourself, you have to ask them to perform steps 1 – 3 in this list and Save & Share the entry with you, and then you will be able to finish it.</li>
+        <li>Scroll down to Archived Submissions, tick the select box of the record you want to create a new version of, and select "Add new version".</li>
+        <li>This creates a cloned record for you, just as if you created a new submission. This new submission has all the metadata from the previous one already copied. Click "Resume". Now you are in the submission workflow.</li>
+        <li>Modify the metadata you want changed. You should at least modify the title by deleting the automatically generated date, giving it a new version number, and, at the end of the description, briefly describing the differences to the previous version. If the size of the resource has changed, you should also modify the size information.</li>
+        <li>Upload the data of the new version and finish the submission as usual.</li>
+      </ol>
+      <p>>Once the submission is finished, the old and new versions are automatically connected, so that the users can see that newer / older version(s) of the resource exists.</p>
+      <p>A more detailed description, together with screenshots is availble from the <a href="https://github.com/ufal/clarin-dspace/wiki/New-Version-Guide">GitHub
+	  CLARIN-DSPACE</a> site.</p>
+    </div>
+
+     <div>
+      <h3 id="integrity">Integrity and authenticity of the archived data</h3>
+      <p>
+      We verify the integrity and authenticity of the archived data at all stages of the item’s lifecycle, both automatically and manually. 
+      The depositor’s identity is verified either through a local account or via a Shibboleth account, which provides verified personal 
+      attributes such as name and email address. Each deposited item is linked to the Data Producer’s account, and only the 
+      Data Producer is authorized to edit, manage, and submit changes to their item prior to deposition.
+      </p>
+      <p>
+      After the review and acceptance by the data curator, the item is published, and its version becomes fixed — the content of the published 
+      bitstreams is immutable. Minor post-publication modifications (e.g., correction of typos, addition of keywords, or inclusion of derived 
+      data formats) may be made upon justified request via the <a class="helpdesk-tolink" href="mailto:dspace@clarin-pl.eu">Help Desk</a> and are evaluated
+      on a case-by-case basis. In cases of more substantial revisions, a new version of the item must be created, and the metadata will 
+      indicate that the earlier version has been superseded.
+      </p>
+      <p>
+        The repository also maintains provenance data and audit trails to ensure traceability and transparency. 
+        Logged-in users have access to detailed information about all changes related to a submitted item, available in 
+        the metadata field dc.description.provenance. This information can be viewed in the full metadata 
+        description mode (e.g., <a href="https://clarin-pl.eu/dspace/handle/11321/741?show=full">see here</a>).
+      </p>
+    </div>
+    
     <div>
       <h3 id="restricted-submissions">Restricted Submissions</h3>
       <p>First of all, all metadata are always publicly available. We 

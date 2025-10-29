@@ -1,0 +1,391 @@
+<body>
+  <div style="width: 100%">
+    <style scoped="scoped">
+      .print_screen_figure{
+      text-align: center;
+      padding-bottom: 15px;
+      padding-top: 15px;
+      }
+      .print_screen_figure figcaption{
+      padding-top: 5px;
+      }
+      .print_screen_img{
+      box-shadow: 3px 3px 1px #ccc;
+      -webkit-box-shadow: 3px 3px 1px
+      #ccc;
+      -moz-box-shadow: 3px 3px 1px #ccc;
+      }
+      #toc_container{
+      background: #f9f9f9 none repeat scroll 0 0;
+      border: 1px solid #aaa;
+      display: table;
+      font-size: 95%;
+      margin-bottom: 1em;
+      padding: 10px;
+      width: auto;
+      }
+      .toc_title{
+      font-weight: 700;
+      text-align: center;
+      }
+      
+      #toc_container li,
+      #toc_container ul,
+      #toc_container ul li{
+      list-style: outside none none !important;
+      }</style>
+    <h2>CLARIN-PL guidelines for data submission</h2>
+    <div id="intro">
+      <p style="margin-top: 10px; margin-bottom: 10px;">The CLARIN-PL
+        repository does not, as a rule, accept entries without data (i.e. without
+        the bitstreams attached to the entry) and this document gives
+        guidelines on the structure of the deposited language
+        resources, which formats are accepted by the CLARIN-PL
+        repository, and what standards should be used as the
+        annotation formats in the textual language resource files.
+        Please note that the complete list of accepted data formats for CLARIN-PL
+	is given in the CLARIN Standards Information System 
+	<a href="https://standards.clarin.eu/sis/views/view-centre.xq?id=CLARIN-PL1">entry for CLARIN-PL</a>.
+      </p>
+    </div>
+    <div id="toc_container">
+      <p class="toc_title">Contents</p>
+      <ul class="toc_list">
+        <li>
+          <a href="#basics">Basic aspects</a>
+        </li>
+        <ul>
+          <li>
+            <a href="#fileNames">Names of files and directories</a>
+          </li>
+          <li>
+            <a href="#fileExtensions">File extensions</a>
+          </li>
+          <li>
+            <a href="#fileCompression">File compression</a>
+          </li>
+          <li>
+            <a href="#bitstreams">Entries with more than one bitstream</a>
+          </li>
+        </ul>
+        <li>
+          <a href="#controledValues">Controlled values</a>
+          <ul>
+            <li>
+              <a href="#LanguageCodes">Language codes</a>
+            </li>
+            <li>
+              <a href="#DatesTimes">Dates and times</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#binary">Accepted binary formats</a>
+        </li>
+        <li>
+          <a href="#encodingFiles">Encoding of textual files</a>
+        </li>
+        <li>
+          <ul>
+            <li>
+              <a href="#character">Character encoding</a>
+            </li>
+            <li>
+              <a href="#programs">Programs</a>
+            </li>
+            <li>
+              <a href="#standardText">Standard text-based formats</a>
+            </li>
+            <li>
+              <a href="#plainText">Plain text files</a>
+            </li>
+            <li>
+              <a href="#tabular">Tabular data</a>
+            </li>
+            <li>
+              <a href="#html">HTML documents</a>
+            </li>
+            <li>
+              <a href="#xml">XML documents</a>
+            </li>
+            <li>
+              <a href="#tei">TEI documents</a>
+            </li>
+            <li>
+              <a href="#linguistic">Linguistic annotation vocabularies</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#references">References</a>
+        </li>
+      </ul>
+    </div>
+    <div id="basics" style="margin-bottom: 20px;">
+      <h3>Basic aspects</h3>
+      <div id="fileNames">
+        <h4>Names of files and directories</h4>
+        <p style="margin-top: 10px; margin-bottom: 10px;">Filenames, as well as directory (folder)
+          names, should contain only ASCII letters, digits, the hyphen ("-") and period (".")
+          characters. They should not contain spaces, underscores, brackets, quotes, dollars,
+          slashes, colons, or other punctuation characters (except hyphen and period), nor accented
+          letters or other non-ASCII characters. <i>Note that it is allowed to use a mixture of upper
+            and lower-case letters</i>. Examples of good filenames are "semcro.v1.zip",
+          "ParlaMint-HR-S08.xml", "SuperGLUE-statistics.tsv".</p>
+      </div>
+      <div id="fileExtensions">
+        <h4>File extensions</h4>
+        <p style="margin-top: 10px; margin-bottom: 10px;">Standard or commonly recognised file
+          extensions should be used, such as ".txt", ".xml", ".jpg". If the authors would like to
+          indicate that the file is in a standard encoding, or that an archive file contains files
+          of a certain type, then double extensions can be used, e.g. "semcro.tei.xml" or
+          "semcro.TEI.zip".</p>
+        <p style="margin-top: 10px; margin-bottom: 10px;">In the rest of this document, the
+          preferred extensions are given next to the file types.</p>
+      </div>
+      <div id="fileCompression">
+        <h4>File compression</h4>
+        <p style="margin-top: 10px; margin-bottom: 10px;"> Language resources, deposited in the
+          repository, are often large and/or consist of a number of files. In such cases, the
+          resource should be compressed and submitted as a single file. A complete directory should
+          be compressed, and the name of the compressed file should be the same as the directory it
+          unpacks in. For example, the file "semcro.zip" should unpack into the directory "semcro/"
+          which then contains the files and possibly subdirectories. It is recommended that the
+          directory also contains a README text file, which gives the title of the resource and its
+          handle. This prevents Creative Commons resources from losing their origin. It is also
+          recommended that hidden files (such as those created by Macs) are not included in the
+          compressed file.</p>
+        <p style="margin-top: 10px; margin-bottom: 10px;">CLARIN-PL prefers ZIP (.zip) files, but
+          accepts also other container compression formats, such as compressed TAR (.tgz) or, for
+          single files, GNU ZIP (.gz).</p>
+      </div>
+      <div id="bitstreams">
+        <h4>Entries with more than one bitstream</h4>
+        <p style="margin-top: 10px; margin-bottom: 10px;"> The data that is part of a submission,
+          can contain, in addition to the source data, also the data in derived formats,
+          accompanying documentation, or the data split into several pieces. This last case makes
+          sense for large submissions, as an individual file should not exceed (approximately) 5 GB. </p>
+        <p style="margin-top: 10px; margin-bottom: 10px;"> In such cases the data can be submitted
+          as several (possibly compressed) files. Follow some existing examples from the CLARIN-PL
+          repository with different reasons for having several bitstreams:
+	  <ul>
+            <li><a href="http://hdl.handle.net/11356/1084">CMC training
+                corpus Janes-Norm 1.2</a></li>
+            <li><a href="http://hdl.handle.net/11356/1379">The "Arcticae
+                horulae" dictionary of German borrowings in Slovenian</a></li>
+            <li><a href="http://hdl.handle.net/11356/1222">Spoken corpus Gos
+                VideoLectures 4.0 (audio)</a></li>
+          </ul>
+        </p>
+      </div>
+    </div>
+    <div id="controledValues">
+      <h3>Controlled values</h3>
+      <p style="margin-top: 10px; margin-bottom: 10px;">All dates and times that appear in a
+      machine-processable context should
+      follow <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>, i.e. “2020-12-28” for
+      a date, “23:21:21” for a time, and “2020-12-28T23:21:12” for a combination of the two. If
+      the time zone is important, then this can be specified via the suffix “Z” which refers to
+      the Coordinated Universal Time (mostly the same as Greenwich mean time) and the offset to
+	UTC, e.g. 23:21:12Z+01:00 for Poland and most other EU countries.</p>
+      <div id="LanguageCodes">
+        <h4>Language codes</h4>
+        <p style="margin-top: 10px; margin-bottom: 10px;">When the data (or filename) needs to
+        refer to a certain language, language codes should be used, rather than names of
+        languages. When they exists, the
+        two-letter <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1</a>
+        language codes should be used, while for languages that do not have a two-letter code,
+        the <a href="https://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a> three letter so
+        called “T-code” should be used, or equivalently, a three letter code
+        from <a href="https://en.wikipedia.org/wiki/ISO_639-3">ISO 639-3</a>, which also contains
+        even more language codes than does ISO 639-2. All three standards concentrate on modern
+        standard languages, although ISO 639-2 and ISO 639-3 also cover some historical variants
+        of a few languages.</p>
+        <p style="margin-top: 10px; margin-bottom: 10px;">If the language resource is of a
+        dialect, or of a historical variant not covered by the ISO standards,
+        then <a href="https://tools.ietf.org/html/bcp47">BCP 47</a> (Tags for Identifying
+        Languages) should be used. In short, this Best Current Practice states that, if possible,
+        the appropriate code from
+        the <a href="https://www.iana.org/assignments/language-subtag-registry">IANA Language
+        Subtag Registry</a> should be used. In case the registry does not contain the required
+        language variant, then the rules for constructing an unregistered code are to start with
+        the code for the language (e.g. “pl” for Polish), add the string “-x-” (for
+        “unregistered”) and choose an arbitrary ASCII suffix (e.g. “kaszubski” for the Polish
+        kaszubski dialect), giving “sl-x-kaszubski”.</p>
+        <p style="margin-top: 10px; margin-bottom: 10px;">You can read more about how to choose
+        the correct language (variety) tag in the W3C document
+        “<a href="https://www.w3.org/International/questions/qa-choosing-language-tags">Choosing
+        a Language Tag</a>”.</p>
+      </div>
+      <div id="DatesTimes">
+        <h4>Dates and times</h4>
+        <p style="margin-top: 10px; margin-bottom: 10px;">All dates and times that appear in a
+        machine-processable context should
+        follow <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>, i.e. “2020-12-28”
+        for a date, “23:21:21” for a time, and “2020-12-28T23:21:12” for a combination of the
+        two. If the time zone is important, then this can be specified via the suffix “Z” which
+        refers to the Coordinated Universal Time (mostly the same as Greenwich mean time) and the
+        offset to UTC, e.g. 23:21:12Z+01:00 for Polish and most other EU countries.</p>
+      </div>
+    </div>
+    <div id="binary">
+      <h3>Accepted binary formats</h3>
+      <p style="margin-top: 10px; margin-bottom: 10px;">CLARIN-PL accepts data in standard and/or
+        well-known open formats.
+	For the full listing of accepted formats see the CLARIN ERIC Standards Information System 
+	<a href="https://standards.clarin.eu/sis/views/view-centre.xq?id=CLARIN-PL1">entry for CLARIN-PL</a>.</p>
+      
+      <p style="margin-top: 10px; margin-bottom: 10px;">As most of the submissions involve marked-up or otherwise
+	structured (mostly) textual data, and the rules here are somewhat more complicated, this is covered in the
+	next section. Here we give the other (i.e. binary) formats accepted by CLARIN-PL:
+	<ul>
+          <li><b>Compression and packaging:</b> GNU ZIP (.gz), ZIP (.zip), TAR (.tar), compressed
+            TAR files (.tgz).</li>
+          <li><b>Document files:</b> for typeset document files we accept PDF (.pdf), but only for
+            accompanying documentation (published papers or reports on the dataset, annotation
+            guidelines etc.), and not for the primary dataset itself – an exception are facsimiles,
+            which can be, in addition to image formats, submitted also as PDFs. </li>
+          <li><b>Language models:</b> if annotation or other open source language analysis tools
+            produce or use only binary language models, these are accepted into the repository,
+            although we prefer text versions of the models.</li>
+          <li><b>Audio files:</b> Wave (.wav), FLAC (.flac), AIFF (.aiff), MPEG 4 audio (.m4a), MP3
+            (.mp3), RAW (.raw). <i>Note that we prefer audio files with lossless or no compression</i>.</li>
+          <li><b>Image files:</b> TIFF (.tiff), GIF (.gif), JPEG (.jpg), PNG (.png), SVG (.svg).
+            <i>Note that we prefer images with lossless or no compression</i>.</li>
+          <li><b>Video files:</b> MPEG video (.mpg, .mpeg, .mp4), AVI (.avi), Motion JPEG 2000
+            (.m2j).</li>
+        </ul>
+      </p>
+      <p style="margin-top: 10px; margin-bottom: 10px;">CLARIN-PL, as a rule, does not accept word
+        processor or spreadsheet formats, such as <b>Microsoft Word</b> or <b>Excel</b> files nor
+          <b>binary (compiled) programs</b>. We allow such data in special cases, which should be
+        discussed in advance via the repository <a class="helpdesk-tolink" href="#">Help Desk</a>.
+        If Word or Excel files are then submitted, they should always be in their XML encoding (i.e.
+        with .docx and .xlsx extensions); equivalent <b>OpenOffice</b> XML-based ODF formats are, of
+        course, also ok.</p>
+    </div>
+    <div id="encodingFiles">
+      <h3>Encoding of textual files</h3>
+      <p style="margin-top: 10px; margin-bottom: 10px;">As most of the repository submissions
+        involve files, which are essentially text files (including numeric data, source program
+        files, XML files, etc.), we here explain how such files should be encoded in more
+        detail.</p>
+      <div id="character">
+        <h4>Character encoding</h4>
+        <p style="margin-top: 10px; margin-bottom: 10px;"> CLARIN-PL accepts only <b>Unicode</b>
+          files. We do not accept files with 8-bit encodings, such as ISO 8859 or Windows code
+          pages. The Unicode files should be encoded in <b>UTF-8</b>, with exceptions being text
+          files in non-Latin based scripts, such as Japanese, which can use UTF-16.</p>
+      </div>
+      <div id="programs">
+        <h4>Programs</h4>
+        <p style="margin-top: 10px; margin-bottom: 10px;">We accept <b>source code</b>, i.e.
+          programs in any of the better known programming languages, such as Python (.py), Perl
+          (.pl), R (.r), C (.c), XSLT (.xsl) etc. including data packaged for such programs.</p>
+      </div>
+      <div id="standardText">
+        <h4>Standard text-based formats</h4>
+        <p style="margin-top: 10px; margin-bottom: 10px;">We also accept text-based formats which
+          are supported by various standards bodies so that documentation is openly available on the
+          Web. Prominent examples are JSON (.json) and RDF/Turtle (.ttl) files, or XML, which is
+          further discussed below.</p>
+      </div>
+      <div id="plainText">
+        <h4>Plain text files</h4>
+        <p style="margin-top: 10px; margin-bottom: 10px;">For <b>unstructured text</b> we accept
+          plain text files (.txt). Trivial formatting, such as the fact that a line break indicates
+          a new paragraph or that text in square brackets indicates a transcriber comment can also
+          be included, as long as the conventions used are explained in a README file.</p>
+      </div>
+      <div id="tabular">
+        <h4>Tabular data</h4>
+        <p style="margin-top: 10px; margin-bottom: 10px;">For <b>spreadsheet or database-like data
+          </b>, we accept commonly used formats such as tab (.txt/.tsv/.tab) and comma
+          (.txt/.csv) separated values. The tabular files should contain a header row and the
+          data should be accompanied with a README file, explaining the meaning of the
+          columns.</p>
+	<p style="margin-top: 10px; margin-bottom: 10px;"><b>Annotated corpora</b> can be
+	submitted in the <a href="https://universaldependencies.org/format.html">CoNLL-U
+	format</a> (.conll or .conllu) used by the <a href="https://universaldependencies.org/">Universal
+	Dependencies project</a>. We also accept the so-called <b>vertical files</b>
+	(.vert/.vrt), which are a mixture of tabular data and XML-like tags, and are used by
+	CQP-based concordancers, i.e. the Corpus Query Workbench, (no)Sketch Engine and
+	KonText. If vertical files are deposited, they should also be accompanied by their
+	registry file. Many corpora available in the CLARIN-PL repository are, along with their
+	TEI encoding, available also as vertical files, and are also linked to the CLARIN-PL
+	infrastructure <a href="https:/kontext.clarin-pl.eu/">KonText</a> and  <a href="https:/korpusomat.pl">Korpusomat</a>concordancers.</p>
+      </div>
+      <div id="html">
+        <h4>HTML documents</h4>
+        <p style="margin-top: 10px; margin-bottom: 10px;">We do not accept HTML (.html/.htm)
+          documents as primary data, however, they can be used for documenting the entry, e.g.
+          containing the explanation of the structure of the data or its linguistic annotation. Such
+          HTML documents should be valid according to some version of HTML (preferably XHTML) and
+          self-sufficient, i.e. if CSS is used, it should be, preferably, embedded in the HTML
+          file(s) or stored together with them.</p>
+      </div>
+      <div id="xml">
+        <h4>XML documents</h4>
+        <p style="margin-top: 10px; margin-bottom: 10px;">By far the most common format of
+          submissions is XML (.xml), which allows for richly and hierarchically structured text
+          data. CLARIN-PL accepts any valid XML documents, where:
+	  <ul>
+            <li>the schema, that is used to validate a document is well-known and publicly available
+              from a stable location, which includes the documentation, e.g. RDF/XML (.rdf) or ELAN
+              (.eaf); </li>
+            <li>or the schema, including its documentation, is a part of the repository entry. </li>
+          </ul>
+        </p>
+        <p style="margin-top: 10px; margin-bottom: 10px;">We accept the schemas in any XML schema
+          definition languages, i.e. DTD (.dtd), RelaxNG (.rng/.rnc) and W3C XML schema (.xsd), as
+          well as Schematron (.xml)</p>
+      </div>
+      <div id="tei">
+        <h4>TEI documents</h4>
+        <p style="margin-top: 10px; margin-bottom: 10px;">The preferred XML encoding of CLARIN-PL
+          repository entries is TEI (.tei/.xml), i.e. using the <a
+            href="https://tei-c.org/guidelines/P5/">Text Encoding Initiative Guidelines</a> for
+          encoding structured language resources, such as language corpora, machine readable
+          dictionaries, text-critical editions, etc.</p>
+        <p style="margin-top: 10px; margin-bottom: 10px;">When the type of the deposited language
+          resource is covered by any of the standard or best-practice customisations of the TEI,
+          such as <a href="https://www.iso.org/standard/37338.html">ISO 24624:2016</a> for
+          transcriptions of spoken language, <a
+            href="https://dariah-eric.github.io/lexicalresources/pages/TEILex0/TEILex0.html">TEI
+            Lex0</a> for dictionaries, or <a href="https://clarin-eric.github.io/parla-clarin/"
+            >Parla-CLARIN</a> for encoding corpora of parliamentary debates, these schemas should be
+          used in preference to using bespoke or generic TEI encodings</p>
+        <p style="margin-top: 10px; margin-bottom: 10px;">If the deposited TEI documents use only
+          standard modules of the TEI, in particular, if they can be validated according to the
+           TEI schema, then only the XML TEI files can be deposited. But for document
+          encodings that incorporate any extensions to the TEI, the TEI ODD and generated XML
+          schemas (in particular RelaxNG .rng and .rnc) and documentation in at least HTML should
+          always accompany such TEI XML data.</p>
+      </div>
+      <div id="linguistic">
+        <h4>Linguistic annotation vocabularies</h4>
+	<p style="margin-top: 10px; margin-bottom: 10px;">Most language corpora are annotated on
+	various levels with linguistic categories. These categories must be documented, either on
+	stable external URLs or together with the repository entry, i.e. in included files or,
+	esp. with TEI-encoded corpora, as part of the corpus document itself.</p>
+	<p style="margin-top: 10px; margin-bottom: 10px;">The more commonly used annotation specifications in CLARIN-PL are:
+	  <ul>
+	    <li><a href="https://universaldependencies.org/">Universal
+	    Dependencies</a>: <a href="https://universaldependencies.org/u/overview/morphology.html">morphological
+	    features</a>
+	    and <a href="https://universaldependencies.org/guidelines.html">syntactic
+	    relations</a></li>
+	  </ul>
+	</p>
+      </div>
+    </div>
+    <div id="references">
+      <h3>References</h3>
+      <ul>
+	<li><a href="https://www.clarin.eu/content/standards">CLARIN ERIC: Standards</a></li>
+	<li><a href="https://www.clarin.eu/content/standards-and-formats">CLARIN ERIC: Standards and Formats</a></li>
+	<li><a href="https://www.mpi.nl/corpus/html/lamus2/apa.html">MPI: Appendix A. Accepted file types and formats</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
